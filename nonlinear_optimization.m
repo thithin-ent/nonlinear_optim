@@ -14,7 +14,7 @@ figure;
 hold on;
 % plot(t,Y)
 
-Y_noise = y(t) + 2*(randn(1,len)-0.5);
+Y_noise = y(t) + 5*(randn(1,len)-0.5);
 plot(t,Y_noise)
 
 %% 비선형 최적화 - 가우스 뉴턴
@@ -37,7 +37,7 @@ end
 
 y_optim = @(x) exp(X(1)*x.^2 + X(2)*x +X(3)) + w;
 y_optim = y_optim(t);
-plot(t,y_optim,'r')
+plot(t,y_optim,'LineWidth', 3)
 
 %% 비선형 최적화 - Levenberg-Marquardt
 X = [5 5 5]';
@@ -66,6 +66,6 @@ end
 
 y_optim1 = @(x) exp(X(1)*x.^2 + X(2)*x +X(3)) + w;
 y_optim1 = y_optim1(t);
-plot(t,y_optim1,'m')
+plot(t,y_optim1,'m','LineWidth', 3)
 
 
